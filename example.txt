@@ -1,0 +1,13 @@
+S_R = ['S3', 'S4', 'R1', 'R2', 'R3']
+Product = ['AA', 'aA', 'b']
+Replace = ['S', 'A', 'A']
+Parser_Table = [
+['S3', 'S4', 'Error', '2', '1'],
+['Error', 'Error', 'Accept', 'Error', 'Error'], 
+['S3', 'S4', 'Error', '5', 'Error'], 
+['S3', 'S4', 'Error', '6', 'Error'], 
+['R3','R3','R3', 'Error', 'Error'], 
+['R1','R1','R1', 'Error', 'Error'], 
+['R2','R2','R2', 'Error', 'Error']] 
+
+

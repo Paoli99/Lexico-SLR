@@ -45,20 +45,21 @@ def abrirTxt():
 	S_R = ['S4', 'S5', 'S6', 'R1', 'R2', 'R3', 'R4', 'R5']
 	Producciones = ['FOT', 'T', '+', '-', 'n']
 	Replace = ['E', 'E', 'O', 'O', 'T']
+#          '+'      '-'      'n'      '$'      'E'      'F'      'O'      'T'     
 	Tabla = [
-		['Error', 'Error', 'S4', 'Error', '1', '2', 'Error', '3'],
-		['Error', 'Error', 'Error', 'Accept', 'Error', 'Error', 'Error', 'Error'],
-		['S5', 'S6', 'Error', 'Error', 'Error', 'Error', '7', 'Error'],
-		['Error', 'Error', 'Error', 'R2', 'Error', 'Error', 'Error', 'Error'],
-		['Error', 'Error', 'Error', 'R5', 'Error', 'Error', 'Error', 'Error'],
-		['Error', 'Error', 'R3', 'Error', 'Error', 'Error', 'Error', 'Error'],
-		['Error', 'Error', 'R4', 'Error', 'Error', 'Error', 'Error', 'Error'],
-		['Error', 'Error', 'S4', 'Error', 'Error', 'Error', 'Error', '8'],
-		['Error', 'Error', 'Error', 'R1', 'Error', 'Error', 'Error', 'Error'],
-		
+		['Error', 'Error', 'S4'   , 'Error' , '1'    , '2'    , 'Error', '3'    ], #0
+		['Error', 'Error', 'Error', 'Accept', 'Error', 'Error', 'Error', 'Error'], #1
+		['S5'   , 'S6'   , 'Error', 'Error' , 'Error', 'Error', '7'    , 'Error'], #2
+		['Error', 'Error', 'Error', 'R2'    , 'Error', 'Error', 'Error', 'Error'], #3
+		['Error', 'Error', 'Error', 'R5'    , 'Error', 'Error', 'Error', 'Error'], #4
+		['Error', 'Error', 'R3'   , 'Error' , 'Error', 'Error', 'Error', 'Error'], #5
+		['Error', 'Error', 'R4'   , 'Error' , 'Error', 'Error', 'Error', 'Error'], #6
+		['Error', 'Error', 'S4'   , 'Error' , 'Error', 'Error', 'Error', '8'    ], #7
+		['Error', 'Error', 'Error', 'R1'    , 'Error', 'Error', 'Error', 'Error'], #8
 	] 
 
-	text = codeText.get('1.0', 'end-1c')
+	text = codeText.get('1.0', 'end-1c') +'$'
+	print(text + '\n')
 	global p, pop, temp, i, a, row, lista, canvas 
 	temp = 0 
 
@@ -68,7 +69,6 @@ def abrirTxt():
 	def Reduce(msg, Producciones, a):
 		pass 
 		global p, pop, post, temp, i, row 
-
 		#lista.insert(lista.index('end'), "Iniciando SLR... ")
 
 		if text[a] == Reglas[i]: 
@@ -129,19 +129,33 @@ def abrirTxt():
 
 						else: 
 							Reduce(msg, Producciones, a)
+  				
 
 	a = 0 
-	check = 2 
-	stop = len(text)
+	check = 2
+	finalText = ''
+	text_array = (str(text)).split('+');
+	print (text_array)
+	for c in range(len(text)):
+		if str(text[c]).isdigit():
+					finalText += 'n'
+		else: 
+					finalText += text[c]
+	
+	stop = len(finalText)
+#	stop = len(text)
 	#print('While loop is going to stop on: ', stop)
-
+	
 	while a < stop:
 		print("-------------------------")
-		print('El valor de lambda es: ' , a, 'y el input es: ', text[a])
-		
+		print('El valor de lambda es: ' , a, 'y el input es: ', finalText[a])
+		if (finalText[a] != 'n' and finalText[a] != '+' and finalText[a] != '-' and finalText[a] != '$') :
+				print('Caracteres invalidos para la gramatica')
+				break
+
 		for i in range(0, len(Reglas),1):
 
-			if text[a] == Reglas[i]:
+			if finalText[a] == Reglas[i]:
 				temp = Stack[len(Stack)-1]
 				post = int(temp)
 				print('Principio del nuevo stack: ', post)
@@ -154,7 +168,7 @@ def abrirTxt():
 					break 
 
 				if Tabla[post][i] == 'Error':
-					print('Gramatica invalida')
+					print('Gramatica invalida, error en '+ Reglas[i] + ' y en el estado '+ str(post))
 					a=a+1 
 					break 
 
@@ -165,7 +179,7 @@ def abrirTxt():
 							msg = S_R[j]
 
 							if msg[0] == 'S':
-								Stack.append(text[a])
+								Stack.append(finalText[a])
 								Stack.append(msg[1])
 								print('Regla a seguir del segundo valor: ', msg[1])
 								print(Stack)

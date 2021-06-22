@@ -1,3 +1,4 @@
+Reglas = ['a', 'b', '$', 'S', 'A']
 S_R = ['S3', 'S4', 'R1', 'R2', 'R3']
 Product = ['AA', 'aA', 'b']
 Replace = ['S', 'A', 'A']
@@ -11,3 +12,38 @@ Parser_Table = [
 ['R2','R2','R2', 'Error', 'Error']] 
 
 
+Reglas = ['+', '-', 'n', '$', 'E', 'O', 'T']
+S_R = ['S3', 'S4', 'S5', 'R1', 'R2', 'R3', 'R4']
+Producciones = ['TO', '+TO', '-TO', 'n']
+Replace = ['E', 'O', 'O', 'T']
+Tabla = [
+	['Error', 'Error', 'S3', 'Error', '1', 'Error', '2'],
+	['Error', 'Error', 'Accept', 'Error', 'Error', 'Error', 'Error'],
+	['S4', 'S5', 'Error', 'Error', 'Error1', '6', 'Error'],
+	['R4', 'R4', 'Error', 'Error', 'Error', 'Error', 'Error'],
+	['Error', 'Error', 'S3', 'Error', 'Error', 'Error', '7'],
+	['Error', 'Error', 'S3', 'Error', 'Error', 'Error', '8'],
+	['Error', 'Error', 'Error', 'R1', 'Error', 'Error', 'Error'],
+	['S4', 'S5', 'Error', 'Error', 'Error', '9', 'Error'],
+	['S4', 'S5', 'Error', 'Error', 'Error', '10', 'Error'],
+	['Error', 'Error', 'Error', 'R2', 'Error', 'Error', 'Error'],
+	['Error', 'Error', 'Error', 'R3', 'Error', 'Error', 'Error'],
+		
+	] 
+
+Reglas = ['+', '-', 'n', '$', 'E', 'F', 'O', 'T']
+S_R = ['S4', 'S5', 'S6', 'R1', 'R2', 'R3', 'R4', 'R5']
+Producciones = ['FOT', 'T', '+', '-', 'n']
+Replace = ['E', 'E', 'O', 'O', 'T']
+Tabla = [
+	['Error', 'Error', 'S4', 'Error', '1', '2', 'Error', '3'],
+	['Error', 'Error', 'Error', 'Accept', 'Error', 'Error', 'Error', 'Error'],
+	['S5', 'S6', 'Error', 'Error', 'Error', 'Error', '7', 'Error'],
+	['Error', 'Error', 'Error', 'R2', 'Error', 'Error', 'Error', 'Error'],
+	['Error', 'Error', 'Error', 'R5', 'Error', 'Error', 'Error', 'Error'],
+	['Error', 'Error', 'R3', 'Error', 'Error', 'Error', 'Error', 'Error'],
+	['Error', 'Error', 'R4', 'Error', 'Error', 'Error', 'Error', 'Error'],
+	['Error', 'Error', 'S4', 'Error', 'Error', 'Error', 'Error', '8'],
+	['Error', 'Error', 'Error', 'R1', 'Error', 'Error', 'Error', 'Error'],
+		
+	] 

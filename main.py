@@ -41,18 +41,22 @@ def click():
 def abrirTxt():
 	Flag = 1 
 	Stack = ['0']
-	Reglas = ['a', 'b', '$', 'A', 'S']
-	S_R = ['S3', 'S4', 'R1', 'R2', 'R3']
-	Producciones = ['AA', 'aA', 'b']
-	Replace = ['S', 'A', 'A']
+	Reglas = ['+', '-', 'n', '$', 'E', 'F', 'O', 'T']
+	S_R = ['S4', 'S5', 'S6', 'R1', 'R2', 'R3', 'R4', 'R5']
+	Producciones = ['FOT', 'T', '+', '-', 'n']
+	Replace = ['E', 'E', 'O', 'O', 'T']
 	Tabla = [
-	['S3', 'S4', 'Error', '2', '1'],
-	['Error', 'Error', 'Accept', 'Error', 'Error'], 
-	['S3', 'S4', 'Error', '5', 'Error'], 
-	['S3', 'S4', 'Error', '6', 'Error'], 
-	['R3','R3','R3', 'Error', 'Error'], 
-	['R1','R1','R1', 'Error', 'Error'], 
-	['R2','R2','R2', 'Error', 'Error']] 
+		['Error', 'Error', 'S4', 'Error', '1', '2', 'Error', '3'],
+		['Error', 'Error', 'Error', 'Accept', 'Error', 'Error', 'Error', 'Error'],
+		['S5', 'S6', 'Error', 'Error', 'Error', 'Error', '7', 'Error'],
+		['Error', 'Error', 'Error', 'R2', 'Error', 'Error', 'Error', 'Error'],
+		['Error', 'Error', 'Error', 'R5', 'Error', 'Error', 'Error', 'Error'],
+		['Error', 'Error', 'R3', 'Error', 'Error', 'Error', 'Error', 'Error'],
+		['Error', 'Error', 'R4', 'Error', 'Error', 'Error', 'Error', 'Error'],
+		['Error', 'Error', 'S4', 'Error', 'Error', 'Error', 'Error', '8'],
+		['Error', 'Error', 'Error', 'R1', 'Error', 'Error', 'Error', 'Error'],
+		
+	] 
 
 	text = codeText.get('1.0', 'end-1c')
 	global p, pop, temp, i, a, row, lista, canvas 
